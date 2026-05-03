@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "timeline": "Timeline",
+    "guides": "Guides",
+    "quiz": "Quiz",
+    "about": "About",
+    "login": "Login",
+    "signup": "Signup"
+  },
+  "hero": {
+    "badge": "AI-Assisted Educational Tool",
+    "title": "Understand Indian Elections, Effortlessly",
+    "subtitle": "AI-powered voter education for every citizen. Clear, accessible, and factual information to guide you through the democratic process.",
+    "cta_primary": "Start Learning",
+    "cta_secondary": "Ask AI Assistant"
+  },
+  "trust": {
+    "eci": "Based on official ECI data",
+    "gigw": "GIGW 3.0 compliant",
+    "wcag": "WCAG 2.1 AA accessible"
+  },
+  "features": {
+    "heading": "Empowering Every Voter",
+    "chatbot_title": "AI Chatbot",
+    "chatbot_desc": "Get instant, factual answers to your election queries with full citations from official sources.",
+    "timeline_title": "Interactive Timeline",
+    "timeline_desc": "Visualize the electoral process from notification to results day in an easy-to-follow format.",
+    "guides_title": "Step-by-step Guides",
+    "guides_desc": "Clear instructions on voter registration, polling booth location, and casting your vote."
+  },
+  "stats": {
+    "officials": "Election Officials",
+    "voters": "Eligible Voters",
+    "languages": "Indian Languages"
+  },
+  "footer": {
+    "disclaimer": "This is an AI-assisted educational tool. Not an official ECI portal. Information provided should be verified with official sources.",
+    "contact": "Contact Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "accessibility": "Accessibility Statement",
+    "gigw": "GIGW 3.0 Compliance"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to main content",
+    "font_decrease": "Decrease font size",
+    "font_normal": "Normal font size",
+    "font_increase": "Increase font size",
+    "high_contrast": "High contrast",
+    "normal_contrast": "Normal contrast",
+    "language": "Language"
+  }
+}

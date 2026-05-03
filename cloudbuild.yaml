@@ -1,0 +1,95 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# ElectionGuide AI — Google Cloud Build CI/CD Pipeline
+# Triggered on every push to `main` branch
+# Builds linux/amd64 image → Artifact Registry → Cloud Run (asia-south1)
+# ══════════════════════════════════════════════════════════════════════════════
+
+substitutions:
+  _REGION: asia-south1
+  _REPO: electionguide-ai
+  _SERVICE: electionguide-ai
+  _PROJECT: project-86a1a2a8-0a81-4297-b3d
+  _IMAGE: asia-south1-docker.pkg.dev/project-86a1a2a8-0a81-4297-b3d/electionguide-ai/electionguide-ai
+
+options:
+  machineType: E2_HIGHCPU_8
+  logging: CLOUD_LOGGING_ONLY
+
+steps:
+  # ── Step 1: Fetch public env vars from Secret Manager ──────────────────────
+  - name: gcr.io/cloud-builders/gcloud
+    id: fetch-secrets
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        echo "Fetching build-time env vars from Secret Manager..."
+        echo "NEXT_PUBLIC_SUPABASE_URL=$$(gcloud secrets versions access latest --secret=NEXT_PUBLIC_SUPABASE_URL --project=${_PROJECT})" >> /workspace/.env.build
+        echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=$$(gcloud secrets versions access latest --secret=NEXT_PUBLIC_SUPABASE_ANON_KEY --project=${_PROJECT})" >> /workspace/.env.build
+        echo "NEXT_PUBLIC_GOOGLE_MAPS_KEY=$$(gcloud secrets versions access latest --secret=NEXT_PUBLIC_GOOGLE_MAPS_KEY --project=${_PROJECT})" >> /workspace/.env.build
+        echo "NEXT_PUBLIC_APP_URL=https://electionguide-ai-cxwzmnsukq-el.a.run.app" >> /workspace/.env.build
+        echo "NEXT_PUBLIC_VAPID_PUBLIC_KEY=$$(gcloud secrets versions access latest --secret=NEXT_PUBLIC_VAPID_PUBLIC_KEY --project=${_PROJECT})" >> /workspace/.env.build
+        cat /workspace/.env.build | sed 's/=.*/=***/' # log keys (not values)
+
+  # ── Step 2: Build Docker image for linux/amd64 ────────────────────────────
+  - name: gcr.io/cloud-builders/docker
+    id: build-image
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        source /workspace/.env.build
+        docker build \
+          --platform linux/amd64 \
+          --build-arg NEXT_PUBLIC_SUPABASE_URL="$$NEXT_PUBLIC_SUPABASE_URL" \
+          --build-arg NEXT_PUBLIC_SUPABASE_ANON_KEY="$$NEXT_PUBLIC_SUPABASE_ANON_KEY" \
+          --build-arg NEXT_PUBLIC_GOOGLE_MAPS_KEY="$$NEXT_PUBLIC_GOOGLE_MAPS_KEY" \
+          --build-arg NEXT_PUBLIC_APP_URL="$$NEXT_PUBLIC_APP_URL" \
+          --build-arg NEXT_PUBLIC_VAPID_PUBLIC_KEY="$$NEXT_PUBLIC_VAPID_PUBLIC_KEY" \
+          --provenance=false \
+          -t ${_IMAGE}:$COMMIT_SHA \
+          -t ${_IMAGE}:latest \
+          .
+    waitFor:
+      - fetch-secrets
+
+  # ── Step 3: Push image to Artifact Registry ───────────────────────────────
+  - name: gcr.io/cloud-builders/docker
+    id: push-image
+    args:
+      - push
+      - --all-tags
+      - ${_IMAGE}
+    waitFor:
+      - build-image
+
+  # ── Step 4: Deploy to Cloud Run ───────────────────────────────────────────
+  - name: gcr.io/cloud-builders/gcloud
+    id: deploy-cloud-run
+    args:
+      - run
+      - deploy
+      - ${_SERVICE}
+      - --image=${_IMAGE}:$COMMIT_SHA
+      - --region=${_REGION}
+      - --platform=managed
+      - --allow-unauthenticated
+      - --min-instances=0
+      - --max-instances=20
+      - --memory=1Gi
+      - --cpu=1
+      - --concurrency=80
+      - --port=3000
+      - --set-secrets=SUPABASE_SERVICE_ROLE_KEY=SUPABASE_SERVICE_ROLE_KEY:latest,GEMINI_API_KEY=GEMINI_API_KEY:latest,GOOGLE_MAPS_API_KEY=NEXT_PUBLIC_GOOGLE_MAPS_KEY:latest,CRON_SECRET=CRON_SECRET:latest,VAPID_PRIVATE_KEY=VAPID_PRIVATE_KEY:latest
+      - --set-env-vars=NODE_ENV=production,NEXT_TELEMETRY_DISABLED=1
+      - --project=${_PROJECT}
+      - --quiet
+    waitFor:
+      - push-image
+
+# ── Build artifacts ───────────────────────────────────────────────────────────
+images:
+  - ${_IMAGE}:$COMMIT_SHA
+  - ${_IMAGE}:latest
+
+timeout: 1800s  # 30 min max build time

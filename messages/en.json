@@ -1,0 +1,544 @@
+{
+  "common": {
+    "appName": "ElectionGuide AI",
+    "tagline": "Understand Indian Elections, Effortlessly",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "logout": "Logout",
+    "save": "Save",
+    "cancel": "Cancel",
+    "next": "Next",
+    "previous": "Previous",
+    "skip": "Skip",
+    "loading": "Loading…",
+    "back": "Back",
+    "close": "Close",
+    "submit": "Submit",
+    "search": "Search"
+  },
+  "navigation": {
+    "home": "Home",
+    "timeline": "Timeline",
+    "guides": "Guides",
+    "quizzes": "Quiz",
+    "chat": "Chat",
+    "profile": "Profile",
+    "dashboard": "Dashboard",
+    "about": "About",
+    "login": "Login",
+    "signup": "Signup"
+  },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "signInSubtitle": "Sign in to continue your voter education journey",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "continueWithGoogle": "Continue with Google",
+    "orSignInWith": "Or sign in with email",
+    "createAccount": "Create Account",
+    "createAccountSubtitle": "Join thousands of informed voters",
+    "resetPassword": "Reset your password",
+    "resetSubtitle": "Enter your email and we'll send you a reset link",
+    "sendResetLink": "Send Reset Link",
+    "checkEmail": "Check your email",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password"
+  },
+  "onboarding": {
+    "progressStep": "Step {current} of {total}",
+    "step1Label": "Language",
+    "step2Label": "Location",
+    "step3Label": "Profile",
+    "step4Label": "Notifications",
+    "step5Label": "Verification",
+    "step1Title": "Choose Your Language",
+    "step1TitleSecondary": "अपनी भाषा चुनें",
+    "step1Subtitle": "Select your preferred language for the app",
+    "step2Title": "Your Location",
+    "step2Subtitle": "Help us show you relevant election information",
+    "step3Title": "Your Profile",
+    "step3Subtitle": "Tell us about yourself for a personalized experience",
+    "step4Title": "Notifications",
+    "step4Subtitle": "Stay informed about elections and important dates",
+    "step5Title": "Voter ID Verification",
+    "step5Subtitle": "Verify your voter ID for a more personalized experience",
+    "complete": "You're all set!",
+    "completeSubtitle": "Your personalized election guide is ready",
+    "whereVote": "Where do you vote?",
+    "personalizeInfo": "We'll personalize your election information",
+    "useLocation": "Use my current location",
+    "enterManually": "OR ENTER MANUALLY",
+    "stateLabel": "State / Union Territory",
+    "statePlaceholder": "Select your state",
+    "districtLabel": "District",
+    "districtPlaceholder": "Select your district",
+    "constituencyLabel": "Constituency",
+    "constituencyPlaceholder": "Select your constituency",
+    "alternative": "Alternative",
+    "pincodeLabel": "PIN / Postal Code",
+    "pincodePlaceholder": "e.g. 400001",
+    "locationPrivacy": "Your location stays private and is only used to show local elections.",
+    "tellAboutYourself": "Tell us about yourself",
+    "profilePersonalization": "Customizing your profile helps us provide the most relevant election information, tailored to your specific needs and interests.",
+    "ageRangeTitle": "What is your age range?",
+    "ageRangeAria": "Select your age range",
+    "voterStatusTitle": "What is your current voter status?",
+    "voterStatusAria": "Select your voter status",
+    "voterStatuses": {
+      "first-time": {
+        "label": "First-time voter",
+        "description": "I have never voted before."
+      },
+      "registered": {
+        "label": "Registered",
+        "description": "I am actively registered."
+      },
+      "not-registered": {
+        "label": "Not registered",
+        "description": "I need to register."
+      },
+      "unsure": {
+        "label": "Unsure",
+        "description": "I don't know my status."
+      }
+    },
+    "interestsTitle": "What are you most interested in learning about?",
+    "interestsSubtitle": "Select all that apply.",
+    "interestsAria": "Select your interests",
+    "interests": {
+      "how-to-vote": "How to vote",
+      "candidate-info": "Candidate info",
+      "election-dates": "Election dates",
+      "legal-procedures": "Legal procedures",
+      "complaint-filing": "Complaint filing"
+    },
+    "voterIdVerificationTitle": "Verify your Voter ID",
+    "voterIdVerificationSubtitle": "Scan your Voter ID card to automatically fill your details and verify your registration status. This is optional but recommended.",
+    "voterIdUploadPlaceholder": "Click to upload or take a photo of your Voter ID",
+    "voterIdSupports": "Supports JPG, PNG (Max 5MB)",
+    "voterIdScanning": "Scanning Document...",
+    "voterIdVerified": "Verified",
+    "voterIdExtractedDetails": "Extracted Details",
+    "voterIdNumberLabel": "Voter ID Number",
+    "voterIdStatusLabel": "Status",
+    "voterIdActive": "Registration Active",
+    "voterIdRemove": "Remove and try again",
+    "voterIdPrivacySecure": "Your data is encrypted and used only for verification. We do not store your physical ID card image after processing.",
+    "completeOnboarding": "Complete Onboarding",
+    "voterIdLabel": "Voter ID Number (EPIC)",
+    "voterIdPlaceholder": "ABC1234567",
+    "voterIdHelper": "Your EPIC number is on the front of your Voter ID card.",
+    "voterIdPrivacy": "Your Voter ID is only used for verification with ECI databases. We do not store this information permanently without your consent.",
+    "voterIdWait": "Verifying your Voter ID...",
+    "voterIdSuccess": "Voter ID Verified Successfully!",
+    "voterIdError": "Could not verify Voter ID. Please check the number and try again.",
+    "stayInformed": "Stay informed",
+    "notificationsPrivacy": "Control how and when we contact you. We prioritize your privacy and will only send you information relevant to your civic engagement.",
+    "realTimeAlerts": "Real-time alerts",
+    "enablePush": "Enable push notifications to receive critical election updates directly in your browser.",
+    "pushEnabled": "Enabled",
+    "allowNotifications": "Allow notifications",
+    "completeSetup": "Complete Setup",
+    "notificationItems": {
+      "electionReminders": {
+        "label": "Election deadline reminders",
+        "description": "Alerts for registration, early voting, and polling day."
+      },
+      "voterGuides": {
+        "label": "New voter guides",
+        "description": "Receive comprehensive breakdowns of candidates and measures."
+      },
+      "dailyQuiz": {
+        "label": "Daily civic quiz",
+        "description": "Short, educational questions to keep your civic knowledge sharp."
+      },
+      "localNews": {
+        "label": "Local election news",
+        "description": "Updates on town halls, debates, and local policy shifts."
+      },
+      "weeklyDigest": {
+        "label": "Weekly digest email",
+        "description": "A summary of the week's most important civic developments."
+      }
+    },
+    "skipAll": "Skip All",
+    "skipAllAria": "Skip all onboarding steps",
+    "skipStepAria": "Skip this step",
+    "saving": "Saving...",
+    "navigationAria": "Onboarding navigation",
+    "selectLanguageAria": "Select {language}",
+    "back": "Back",
+    "next": "Next",
+    "backAria": "Go to previous step",
+    "homeAria": "Go to home",
+    "nextAria": "Go to next step",
+    "completeAria": "Complete setup"
+  },
+  "chat": {
+    "placeholder": "Ask anything about Indian elections…",
+    "send": "Send",
+    "newChat": "New Chat",
+    "regenerate": "Regenerate",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "sources": "Sources",
+    "emptyTitle": "Ask me anything about Indian elections",
+    "emptySubtitle": "I can help you understand voting procedures, candidates, timelines, and more.",
+    "suggestedQuestions": "Suggested Questions"
+  },
+  "landing": {
+    "badge": "AI-Assisted Educational Tool",
+    "heroTitle": "Understand Indian Elections, Effortlessly",
+    "heroSubtitle": "AI-powered voter education for every citizen. Clear, accessible, and factual information to guide you through the democratic process.",
+    "ctaPrimary": "Start Learning",
+    "ctaSecondary": "Ask AI Assistant",
+    "featuresHeading": "Empowering Every Voter",
+    "chatbotTitle": "AI Chatbot",
+    "chatbotDesc": "Get instant, factual answers to your election queries with full citations from official sources.",
+    "timelineTitle": "Interactive Timeline",
+    "timelineDesc": "Visualize the electoral process from notification to results day in an easy-to-follow format.",
+    "guidesTitle": "Step-by-step Guides",
+    "guidesDesc": "Clear instructions on voter registration, polling booth location, and casting your vote."
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "networkError": "Network error. Please check your connection.",
+    "notFound": "Page not found",
+    "unauthorized": "Please sign in to access this page",
+    "forbidden": "You don't have permission to access this page",
+    "rateLimited": "Too many requests. Please wait a moment.",
+    "invalidInput": "Please check your input and try again.",
+    "sessionExpired": "Your session has expired. Please sign in again."
+  },
+  "nav": {
+    "timeline": "Timeline",
+    "guides": "Guides",
+    "quiz": "Quiz",
+    "about": "About",
+    "login": "Login",
+    "signup": "Signup"
+  },
+  "hero": {
+    "badge": "AI-Assisted Educational Tool",
+    "title": "Understand Indian Elections, Effortlessly",
+    "subtitle": "AI-powered voter education for every citizen. Clear, accessible, and factual information to guide you through the democratic process.",
+    "cta_primary": "Start Learning",
+    "cta_secondary": "Ask AI Assistant"
+  },
+  "trust": {
+    "eci": "Based on official ECI data",
+    "gigw": "GIGW 3.0 compliant",
+    "wcag": "WCAG 2.1 AA accessible"
+  },
+  "features": {
+    "heading": "Empowering Every Voter",
+    "chatbot_title": "AI Chatbot",
+    "chatbot_desc": "Get instant, factual answers to your election queries with full citations from official sources.",
+    "timeline_title": "Interactive Timeline",
+    "timeline_desc": "Visualize the electoral process from notification to results day in an easy-to-follow format.",
+    "guides_title": "Step-by-step Guides",
+    "guides_desc": "Clear instructions on voter registration, polling booth location, and casting your vote."
+  },
+  "stats": {
+    "officials": "Election Officials",
+    "officials_val": "12M",
+    "voters": "Eligible Voters",
+    "voters_val": "97 Crore",
+    "languages": "Indian Languages",
+    "languages_val": "15"
+  },
+  "footer": {
+    "disclaimer": "This is an AI-assisted educational tool. Not an official ECI portal. Information provided should be verified with official sources.",
+    "contact": "Contact Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "accessibility": "Accessibility Statement",
+    "gigw": "GIGW 3.0 Compliance"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to main content",
+    "font_decrease": "Decrease font size",
+    "font_normal": "Normal font size",
+    "font_increase": "Increase font size",
+    "high_contrast": "High contrast",
+    "normal_contrast": "Normal contrast",
+    "language": "Language",
+    "voice_narration": "Voice Narration",
+    "start_narration": "Start voice narration",
+    "stop_narration": "Stop voice narration"
+  },
+  "timeline": {
+    "hero_title": "Indian Election Lifecycle",
+    "hero_subtitle": "From voter rolls to vote counting — understand every step of the democratic process.",
+    "print": "Print",
+    "share": "Share",
+    "phases_heading": "Election Phases",
+    "compare_label": "Compare with previous",
+    "view_phase": "Phase",
+    "view_calendar": "Calendar",
+    "ask_ai": "Ask AI",
+    "add_to_calendar": "Add {title} to calendar",
+    "filter_election_type": "Election Type",
+    "filter_state_ut": "State / UT",
+    "filter_year": "Year",
+    "election_phases": "Election Phases",
+    "compare_previous": "Compare with previous",
+    "aria_compare": "Compare with previous election",
+    "phases": {
+      "roll-prep": {
+        "title": "Roll Preparation",
+        "bite": "Electoral rolls are updated — 97 crore voters verified, new registrations processed."
+      },
+      "announcement": {
+        "title": "Announcement & MCC",
+        "bite": "ECI announces the 7-phase schedule — Model Code of Conduct kicks in immediately."
+      },
+      "nominations": {
+        "title": "Nominations & Scrutiny",
+        "bite": "Candidates file nomination papers with affidavits on criminal cases, assets, and education."
+      },
+      "campaigning": {
+        "title": "Campaigning",
+        "bite": "Political parties campaign across 543 constituencies — spending limits enforced."
+      },
+      "polling": {
+        "title": "7-Phase Polling",
+        "bite": "642 million voters cast their ballots across 7 phases using EVMs with VVPAT."
+      },
+      "counting": {
+        "title": "Counting & Results",
+        "bite": "EVM votes counted at 1,100+ centres — VVPAT verification performed."
+      }
+    },
+    "status_completed": "Completed",
+    "status_active": "Active",
+    "status_upcoming": "Upcoming",
+    "election_types": {
+      "lok_sabha": "Lok Sabha (General)",
+      "vidhan_sabha": "Vidhan Sabha (State)"
+    },
+    "states": {
+      "all_india": "All India",
+      "delhi": "Delhi",
+      "up": "Uttar Pradesh",
+      "maharashtra": "Maharashtra",
+      "west_bengal": "West Bengal",
+      "tamil_nadu": "Tamil Nadu",
+      "bihar": "Bihar",
+      "karnataka": "Karnataka"
+    }
+  },
+  "evm": {
+    "heading": "EVM/VVPAT Lifecycle",
+    "secure_tech": "Secure Technology",
+    "concept_to_storage": "From Concept to Storage",
+    "protocols_desc": "Understanding the rigorous security protocols, multi-stage randomized checks, and secure storage facilities that protect the integrity of the vote.",
+    "explore_protocols": "Explore Protocols",
+    "stages": {
+      "flc_title": "FLC",
+      "flc_desc": "First Level Checking by BEL/ECIL engineers in presence of political parties.",
+      "random_title": "Randomization",
+      "random_desc": "Two-stage automated allocation to constituencies and specific booths to prevent targeted tampering.",
+      "mock_title": "Mock Poll",
+      "mock_desc": "Conducted on poll day morning with minimum 50 votes cast and tallied against VVPAT slips.",
+      "strong_title": "Strong Room",
+      "strong_desc": "Post-poll secure storage under 3-tier security cover with CCTV monitoring."
+    }
+  },
+  "dashboard": {
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "aiAssistant": "AI Assistant",
+      "timeline": "Election Timeline",
+      "guides": "Guides",
+      "boothFinder": "Booth Finder",
+      "voterPortal": "Voter Portal",
+      "digitalLocker": "Digital Locker",
+      "knowledgeBase": "Knowledge Base",
+      "electionNews": "Election News",
+      "civicEducation": "Civic Education",
+      "grievanceCell": "Grievance Cell",
+      "settings": "Settings",
+      "backToHome": "Back to Home",
+      "signOut": "Sign Out",
+      "categories": {
+        "main": "Main",
+        "resources": "Resources",
+        "tools": "Tools",
+        "support": "Support"
+      }
+    },
+    "hero": {
+      "greeting": "Namaste, {name}!",
+      "nextElection": "Next Election",
+      "lokSabha": "Lok Sabha Elections 2024",
+      "countdown": "{days}d : {hours}h : {minutes}m",
+      "voterReadiness": "Voter Readiness",
+      "registrationStatus": "Registration Status",
+      "verified": "Verified",
+      "ePicStatus": "EPIC Status",
+      "digitalCopyReady": "Digital Copy Ready",
+      "assignedBooth": "Assigned Booth",
+      "readyToVote": "Ready to Vote!"
+    },
+    "quickActions": {
+      "askAI": "Ask Election AI",
+      "askAi": "Ask Election AI",
+      "findBooth": "Find My Booth",
+      "checkRegistration": "Check Registration",
+      "verifyName": "Verify My Name",
+      "takeQuiz": "Take Daily Quiz"
+    },
+    "electionJourney": {
+      "title": "Your Election Journey",
+      "steps": {
+        "rollPrep": {
+          "label": "Roll Prep",
+          "date": "Completed Jan 15"
+        },
+        "announcement": {
+          "label": "Announcement",
+          "date": "Completed Mar 10"
+        },
+        "nominations": {
+          "label": "Nominations",
+          "date": "Completed Apr 5"
+        },
+        "campaigning": {
+          "label": "Campaigning",
+          "date": "Ongoing - Ends Nov 18"
+        },
+        "polling": {
+          "label": "Polling",
+          "date": "Starts Nov 20"
+        }
+      }
+    },
+    "widgets": {
+      "civicFact": {
+        "title": "Today's Civic Fact",
+        "fact": "The Model Code of Conduct (MCC) comes into force immediately after the Election Commission announces the poll schedule, to ensure a level playing field."
+      },
+      "dailyQuiz": {
+        "title": "Daily Quiz",
+        "badge": "New",
+        "question": "What is the minimum age required to contest in the Lok Sabha elections?",
+        "action": "Play Now"
+      },
+      "recentNews": {
+        "title": "Recent News",
+        "news1": {
+          "title": "ECI releases final electoral rolls for upcoming assembly polls",
+          "time": "2 hours ago"
+        },
+        "news2": {
+          "title": "New polling stations added in rural districts to improve access",
+          "time": "5 hours ago"
+        }
+      }
+    },
+    "panels": {
+      "notifications": {
+        "title": "Notifications",
+        "items": {
+          "voterId": "Voter ID Card updated successfully. Please download the digital copy.",
+          "pollingBooth": "Polling booth assigned: Govt. Primary School, Ward 12.",
+          "reminder": "Reminder: Check candidate affidavits for your constituency.",
+          "guide": "New election guide available: 'Understanding the EVM'.",
+          "welcome": "Welcome to ElectionGuide AI! Complete your profile.",
+          "timeNow": "Just now",
+          "timeYesterday": "Yesterday",
+          "timeDaysAgo": "{count} days ago",
+          "timeWeeksAgo": "{count} weeks ago"
+        }
+      },
+      "bookmarks": {
+        "title": "Bookmarks",
+        "item1": "How to Read an Affidavit",
+        "item2": "Constituency Map 2024",
+        "item3": "Model Code of Conduct PDF"
+      },
+      "trending": {
+        "title": "Trending Questions",
+        "items": {
+          "evm": "EVM Security",
+          "nota": "NOTA rules",
+          "proxy": "Proxy voting",
+          "limits": "Candidate limits"
+        }
+      }
+    }
+  },
+  "candidates": {
+    "title": "Know Your Candidates",
+    "subtitle": "Make informed decisions with verified candidate data",
+    "constituency": "Constituency",
+    "electionPhase": "Election Phase",
+    "filters": "Filters",
+    "cleanRecord": "Clean Record",
+    "criminalCase": "{count} Criminal Case",
+    "criminalCases": "{count} Criminal Cases",
+    "ageLabel": "Age {age}",
+    "candidateNum": "Candidate #{num}",
+    "education": "Education",
+    "declaredAssets": "Declared Assets",
+    "pendingCases": "Pending Cases",
+    "activeCases": "{count} Active",
+    "viewFullProfile": "View Full Profile",
+    "gender": {
+      "male": "Male",
+      "female": "Female",
+      "other": "Other"
+    },
+    "parties": {
+      "independent": "Independent"
+    },
+    "profile": {
+      "backLink": "Back to Candidates",
+      "verified": "Verified",
+      "incumbent": "Incumbent",
+      "compare": "Compare",
+      "share": "Share Profile",
+      "aiInsight": {
+        "title": "AI Context Summary",
+        "summary": "This candidate has declared {count} pending cases in their latest election affidavit. Two of these involve serious IPC sections related to financial irregularities. None have resulted in convictions."
+      },
+      "stats": {
+        "totalCases": "Total Declared Cases",
+        "active": "Active",
+        "severityTitle": "Severity Breakdown (IPC Sections)",
+        "serious": "Serious Offenses ({count})",
+        "nonSerious": "Non-Serious ({count})"
+      },
+      "caseRegister": {
+        "title": "Detailed Case Register",
+        "filter": "Filter",
+        "caseNum": "Case #{num}",
+        "seriousBadge": "Serious Offense",
+        "nonSeriousBadge": "Non-Serious",
+        "pendingBadge": "Pending",
+        "charges": "Charges (IPC Sections)",
+        "filed": "Filed: {date}",
+        "viewOrder": "View Court Order",
+        "viewAffidavit": "View Affidavit",
+        "loadMore": "Load Remaining {count} Cases"
+      },
+      "footer": {
+        "verified": "Data verified against ECI Affidavit",
+        "adr": "Powered by ADR (Association for Democratic Reforms)",
+        "lastUpdated": "Last Updated: {date}"
+      }
+    },
+    "tabs": {
+      "overview": "Overview",
+      "criminal": "Criminal Cases",
+      "financial": "Financial Profile",
+      "education": "Education",
+      "track": "Track Record",
+      "affidavit": "Affidavit"
+    }
+  }
+}

@@ -1,26 +1,250 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ══════════════════════════════════════════════════════════════
+   ELECTIONGUIDE AI — Design System (from Stitch)
+   Material Design 3 Custom Theme
+   ══════════════════════════════════════════════════════════════ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ── Fonts ─────────────────────────────────────────────── */
+  --font-sans: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
+
+  /* ── Primary ───────────────────────────────────────────── */
+  --color-primary: #00236f;
+  --color-primary-container: #1e3a8a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #90a8ff;
+  --color-primary-fixed: #dce1ff;
+  --color-primary-fixed-dim: #b6c4ff;
+  --color-on-primary-fixed: #00164e;
+  --color-on-primary-fixed-variant: #264191;
+  --color-inverse-primary: #b6c4ff;
+
+  /* ── Secondary (Saffron) ──────────────────────────────── */
+  --color-secondary: #8f4e00;
+  --color-secondary-container: #fe9832;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #683700;
+  --color-secondary-fixed: #ffdcc2;
+  --color-secondary-fixed-dim: #ffb77a;
+  --color-on-secondary-fixed: #2e1500;
+  --color-on-secondary-fixed-variant: #6d3a00;
+
+  /* ── Tertiary (Green) ─────────────────────────────────── */
+  --color-tertiary: #013300;
+  --color-tertiary-container: #034c00;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #58c345;
+  --color-tertiary-fixed: #8dfc75;
+  --color-tertiary-fixed-dim: #72de5c;
+  --color-on-tertiary-fixed: #012200;
+  --color-on-tertiary-fixed-variant: #035300;
+
+  /* ── Error ─────────────────────────────────────────────── */
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* ── Surface / Background ─────────────────────────────── */
+  --color-surface: #f8f9ff;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-dim: #cbdbf5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eff4ff;
+  --color-surface-container: #e5eeff;
+  --color-surface-container-high: #dce9ff;
+  --color-surface-container-highest: #d3e4fe;
+  --color-surface-variant: #d3e4fe;
+  --color-surface-tint: #4059aa;
+  --color-background: #f8f9ff;
+  --color-on-surface: #0b1c30;
+  --color-on-surface-variant: #444651;
+  --color-on-background: #0b1c30;
+  --color-inverse-surface: #213145;
+  --color-inverse-on-surface: #eaf1ff;
+
+  /* ── Outline ───────────────────────────────────────────── */
+  --color-outline: #757682;
+  --color-outline-variant: #c5c5d3;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ── CSS Variables for dynamic accessibility ──────────────── */
+:root {
+  --font-size-multiplier: 1;
+  --contrast-mode: "normal";
+}
+
+/* ── Font Size Scaling (A-, A, A+) ──────────────────────── */
+html {
+  font-size: calc(16px * var(--font-size-multiplier));
+}
+
+html[data-font-size="small"] {
+  --font-size-multiplier: 0.875;
+}
+
+html[data-font-size="normal"] {
+  --font-size-multiplier: 1;
+}
+
+html[data-font-size="large"] {
+  --font-size-multiplier: 1.125;
+}
+
+html[data-font-size="xlarge"] {
+  --font-size-multiplier: 1.25;
+}
+
+/* ── High Contrast Mode ─────────────────────────────────── */
+html[data-contrast="high"] {
+  --color-on-surface: #000000;
+  --color-on-surface-variant: #1a1a2e;
+  --color-on-background: #000000;
+  --color-outline-variant: #666666;
+  --color-surface-container-lowest: #ffffff;
+  --color-primary-container: #0f2660;
+}
+
+/* ── Smooth scrolling & focus ────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+*:focus-visible {
+  outline: 3px solid var(--color-primary-container);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
+/* ── Selection ────────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-primary-fixed);
+  color: var(--color-on-primary-fixed);
+}
+
+/* ── Custom Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline);
+}
+
+/* ── Typewriter cursor for AI streaming ──────────────────── */
+.typewriter-cursor {
+  border-right: 2px solid var(--color-primary);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ── Skip to content ─────────────────────────────────────── */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 12px 24px;
+  background: var(--color-primary-container);
+  color: var(--color-on-primary);
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* ── Body gradient (from Stitch) ─────────────────────────── */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom right, #f8f9ff, #eff4ff);
+  min-height: 100vh;
+}
+
+/* ── Material Symbols defaults ───────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.material-symbols-filled {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* ── Float animation for EVM hero ────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ── Scrollbar hide utility ──────────────────────────────── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Accessibility: Respect prefers-reduced-motion ────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-pulse,
+  .animate-spin,
+  .animate-bounce,
+  .animate-in {
+    animation: none !important;
+  }
 }
