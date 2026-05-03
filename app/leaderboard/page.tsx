@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import type { Metadata } from "next";
 import { SkipToContent } from "@/components/accessibility/SkipToContent";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
@@ -115,7 +114,6 @@ export default function LeaderboardPage() {
         {/* Podium */}
         <section aria-label="Top 3 Podium" className="flex justify-center items-end gap-3 mb-12">
           {top3.map((user, idx) => {
-            const tier = getTier(user.xp);
             return (
               <div key={user.name} className="flex flex-col items-center gap-2 w-28 md:w-36">
                 {/* Avatar + badge */}

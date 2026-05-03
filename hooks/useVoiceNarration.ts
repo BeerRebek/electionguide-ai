@@ -20,6 +20,7 @@ export function useVoiceNarration(options: UseVoiceNarrationOptions = {}) {
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsSupported(typeof window !== "undefined" && "speechSynthesis" in window);
   }, []);
 

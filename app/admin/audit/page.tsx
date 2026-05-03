@@ -47,6 +47,7 @@ export default function AdminAuditPage() {
     setLoading(false);
   }, [actionFilter]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { fetchLogs(); }, [fetchLogs]);
 
   return (

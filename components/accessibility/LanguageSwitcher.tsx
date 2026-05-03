@@ -31,6 +31,7 @@ export function LanguageSwitcher() {
   // Initialize from cookie
   useEffect(() => {
     const match = document.cookie.match(/NEXT_LOCALE=(\w+)/);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (match?.[1]) setSelected(match[1]);
   }, []);
 

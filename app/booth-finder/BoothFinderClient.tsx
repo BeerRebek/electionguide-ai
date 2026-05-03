@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 
 // ── Types ──────────────────────────────────────────────────────────
 interface PollingBooth {
@@ -103,6 +102,12 @@ function waitClass(min: number) {
   return "text-error";
 }
 
+// ── Voter ID → booth mapping (demo data) ──────────────────────────
+const VOTER_ID_MAP: Record<string, string> = {
+  "NDX1234567": "b1", "MHB9876543": "b2", "PNQ4561230": "b3",
+  "MHC7890123": "b4", "NDX5554321": "b5", "PNQ1112233": "b6",
+};
+
 export function BoothFinderClient() {
   const [query, setQuery] = useState("");
   const [radius, setRadius] = useState(5);
@@ -119,12 +124,6 @@ export function BoothFinderClient() {
   const [searched, setSearched] = useState(false);
   const [showHints, setShowHints] = useState(false);
   const [resolvedAddress, setResolvedAddress] = useState<string | null>(null);
-
-  // ── Voter ID → booth mapping (demo data) ──────────────────────────
-  const VOTER_ID_MAP: Record<string, string> = {
-    "NDX1234567": "b1", "MHB9876543": "b2", "PNQ4561230": "b3",
-    "MHC7890123": "b4", "NDX5554321": "b5", "PNQ1112233": "b6",
-  };
 
   // ── Text filter ────────────────────────────────────────────────────
   const applyQueryFilter = useCallback(

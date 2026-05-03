@@ -4,7 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 interface ElectionPhaseRow {
   phase_number: number;
   polling_date: string;
-  elections: { title: string } | null;
+  elections: { title: string }[];
 }
 
 interface ProfileRow {
@@ -61,7 +61,7 @@ export async function GET(req: NextRequest) {
     weekAway.forEach((phase: ElectionPhaseRow) => {
       triggers.push({
         type: "7_day_reminder",
-        electionTitle: phase.elections?.title || "Election",
+        electionTitle: phase.elections?.[0]?.title || "Election",
         pollingDate: phase.polling_date,
         phaseNumber: phase.phase_number,
       });
@@ -78,7 +78,7 @@ export async function GET(req: NextRequest) {
     tomorrow.forEach((phase: ElectionPhaseRow) => {
       triggers.push({
         type: "1_day_reminder",
-        electionTitle: phase.elections?.title || "Election",
+        electionTitle: phase.elections?.[0]?.title || "Election",
         pollingDate: phase.polling_date,
         phaseNumber: phase.phase_number,
       });
@@ -95,7 +95,7 @@ export async function GET(req: NextRequest) {
     todayElections.forEach((phase: ElectionPhaseRow) => {
       triggers.push({
         type: "election_day",
-        electionTitle: phase.elections?.title || "Election",
+        electionTitle: phase.elections?.[0]?.title || "Election",
         pollingDate: phase.polling_date,
         phaseNumber: phase.phase_number,
       });

@@ -16,7 +16,17 @@ function fmt(val: number): string {
   return `₹${val.toLocaleString("en-IN")}`;
 }
 
-function CustomTooltip({ active, payload }: any) {
+interface TooltipPayloadItem {
+  name: string;
+  value: number;
+}
+
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: TooltipPayloadItem[];
+}
+
+function CustomTooltip({ active, payload }: CustomTooltipProps) {
   if (active && payload && payload.length) {
     return (
       <div className="bg-surface-container-highest border border-outline-variant rounded-xl px-4 py-3 shadow-lg text-sm">

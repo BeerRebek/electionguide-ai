@@ -36,6 +36,7 @@ export function HeroCard() {
   });
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCountdown(getCountdown(target));
     const interval = setInterval(() => setCountdown(getCountdown(target)), 60000);
     return () => clearInterval(interval);

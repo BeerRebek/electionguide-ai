@@ -32,7 +32,6 @@ import { createClient } from "@/lib/supabase/client";
 export function useChatPersistence() {
   const {
     currentSessionId,
-    isAuthenticated,
     setSessions,
     setMessages,
     setCurrentSession,
@@ -43,6 +42,38 @@ export function useChatPersistence() {
   } = useChatStore();
 
   const [hydrating, setHydrating] = useState(true);
+
+  // ── Load Sessions ───────────────────────────────────────────
+  // Declared before auth effect so it can be referenced inside the closure.
+  const loadSessions = useCallback(async () => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setHydrating(true);
+    try {
+      const isAuth = useChatStore.getState().isAuthenticated;
+
+      if (isAuth) {
+        const sessions = await fetchSessions();
+        setSessions(sessions);
+      } else {
+        // Anonymous fallback — load from localStorage
+        const localSessions = getLocalSessions();
+        setSessions(localSessions);
+      }
+
+      // Recover last active session
+      const lastId = getLastSessionId();
+      if (lastId && !useChatStore.getState().currentSessionId) {
+        setCurrentSession(lastId);
+      }
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Failed to load conversations"
+      );
+    } finally {
+      setHydrating(false);
+    }
+  // eslint-disable-next-line react-hooks/preserve-manual-memoization
+  }, [setSessions, setCurrentSession, setError]);
 
   // ── Auth Detection ──────────────────────────────────────────
   useEffect(() => {
@@ -71,35 +102,6 @@ export function useChatPersistence() {
     return () => subscription.unsubscribe();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // ── Load Sessions ───────────────────────────────────────────
-  const loadSessions = useCallback(async () => {
-    setHydrating(true);
-    try {
-      const isAuth = useChatStore.getState().isAuthenticated;
-
-      if (isAuth) {
-        const sessions = await fetchSessions();
-        setSessions(sessions);
-      } else {
-        // Anonymous fallback — load from localStorage
-        const localSessions = getLocalSessions();
-        setSessions(localSessions);
-      }
-
-      // Recover last active session
-      const lastId = getLastSessionId();
-      if (lastId && !useChatStore.getState().currentSessionId) {
-        setCurrentSession(lastId);
-      }
-    } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Failed to load conversations"
-      );
-    } finally {
-      setHydrating(false);
-    }
-  }, [setSessions, setCurrentSession, setError]);
 
   useEffect(() => {
     loadSessions();

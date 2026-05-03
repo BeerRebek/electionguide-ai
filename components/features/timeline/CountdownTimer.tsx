@@ -48,6 +48,7 @@ export function CountdownTimer({ targetDate, label }: CountdownTimerProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const interval = setInterval(() => setTime(calcTimeLeft(targetDate)), 1000);
     return () => clearInterval(interval);

@@ -35,7 +35,7 @@ export function useUploadAttachment() {
       const fileName = `${timestamp}-${Math.random().toString(36).substring(2, 7)}.${fileExt}`;
       const filePath = `${userId}/${fileName}`;
 
-      const { data, error: uploadError } = await supabase.storage
+      const { error: uploadError } = await supabase.storage
         .from("chat-attachments")
         .upload(filePath, file, {
           cacheControl: "3600",
@@ -54,8 +54,8 @@ export function useUploadAttachment() {
         type: file.type,
         size: file.size,
       };
-    } catch (err: any) {
-      setError(err.message || "Failed to upload file");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to upload file");
       return null;
     } finally {
       setIsUploading(false);

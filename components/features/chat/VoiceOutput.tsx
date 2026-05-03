@@ -54,6 +54,7 @@ export function VoiceOutput({ text, language = "English" }: VoiceOutputProps) {
 
   useEffect(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSupported(false);
     }
     return () => {
@@ -160,6 +161,7 @@ export function VoiceOutput({ text, language = "English" }: VoiceOutputProps) {
     const wordCount = cleaned.split(/\s+/).length;
     const durationMs = (wordCount / (150 * speed)) * 60 * 1000;
     startProgressTracking(durationMs);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [supported, isPaused, text, speed, language, cleanText, progress, startProgressTracking, stopProgressTracking]);
 
   const handlePause = useCallback(() => {

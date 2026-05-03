@@ -50,6 +50,7 @@ export function useRealtime<T extends Record<string, unknown>>({
     }
 
     const supabase = createClient();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setStatus("connecting");
 
     const channelConfig: {

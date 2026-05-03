@@ -65,16 +65,8 @@ export async function sendPushNotification(
 
     // Lightweight version: POST directly to the push endpoint
     // This works for same-origin push services in development
-    const pushData = JSON.stringify({
-      title: payload.title,
-      body: payload.body,
-      icon: payload.icon ?? "/icons/icon-192x192.png",
-      badge: payload.badge ?? "/icons/badge-72x72.png",
-      data: { url: payload.url ?? "/" },
-      tag: payload.tag,
-    });
-
-    console.log(`[push] Would send to ${subscription.endpoint.slice(0, 50)}... : ${payload.title}`);
+    // Log intent (web-push implementation commented out below)
+    console.log(`[push] Would send to ${subscription.endpoint.slice(0, 50)}... : ${payload.title} — ${payload.body}`);
 
     // In production with web-push installed, uncomment:
     /*
@@ -88,9 +80,10 @@ export async function sendPushNotification(
     */
 
     return { success: true };
-  } catch (e: any) {
-    console.error("[push] Send error:", e.message);
-    return { success: false, error: e.message };
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    console.error("[push] Send error:", msg);
+    return { success: false, error: msg };
   }
 }
 

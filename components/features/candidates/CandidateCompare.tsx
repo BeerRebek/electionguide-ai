@@ -92,8 +92,6 @@ const ALL_CANDIDATES = [
   },
 ];
 
-type Candidate = (typeof ALL_CANDIDATES)[number];
-
 // ── Comparison Metric Row ──────────────────────────────────────
 
 function MetricRow({

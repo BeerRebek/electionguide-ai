@@ -39,7 +39,7 @@ export function useSendMessage() {
     async (
       userContent: string,
       language: string = "English",
-      attachments: any[] = [],
+      attachments: { url: string; name: string; type: string; size: number }[] = [],
       existingMessages?: { role: string; content: string }[]
     ) => {
       // Add user message to store

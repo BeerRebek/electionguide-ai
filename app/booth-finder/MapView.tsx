@@ -5,7 +5,8 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 // Fix leaflet default icons broken by webpack
-delete (L.Icon.Default.prototype as any)._getIconUrl;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+delete (L.Icon.Default.prototype as unknown as Record<string, unknown>)._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
   iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
@@ -81,6 +82,7 @@ export default function MapView({
       mapRef.current?.remove();
       mapRef.current = null;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // ── Add / update booth markers ────────────────────────────────
@@ -125,6 +127,7 @@ export default function MapView({
       const latLngs = booths.map((b) => [b.lat, b.lng] as [number, number]);
       map.fitBounds(L.latLngBounds(latLngs), { padding: [40, 40] });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [booths]);
 
   // ── User location marker ──────────────────────────────────────
@@ -152,6 +155,7 @@ export default function MapView({
         m.setStyle({ color: "#ffffff", weight: 2, radius: 14 });
       }
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected]);
 
   return (

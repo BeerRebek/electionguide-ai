@@ -105,11 +105,11 @@ export function CandidateProfile() {
   }
 
   const isClean = (candidate.criminal_cases ?? 0) === 0;
-  const partyColor = (candidate.parties as any)?.color ?? "#6366f1";
-  const partyName = (candidate.parties as any)?.name ?? "Independent";
-  const partyAbbr = (candidate.parties as any)?.abbreviation;
-  const constituencyName = (candidate.constituencies as any)?.name ?? "";
-  const constituencyState = (candidate.constituencies as any)?.state ?? "";
+  const partyColor = candidate.parties?.color ?? "#6366f1";
+  const partyName = candidate.parties?.name ?? "Independent";
+  const partyAbbr = candidate.parties?.abbreviation;
+  const constituencyName = candidate.constituencies?.name ?? "";
+  const constituencyState = candidate.constituencies?.state ?? "";
 
   return (
     <div className="max-w-[1200px] mx-auto p-4 md:p-8 lg:p-12">

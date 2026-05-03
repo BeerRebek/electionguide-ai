@@ -169,7 +169,7 @@ export function CandidatesOverview() {
 
       if (!candidateRows || candidateRows.length === 0) return;
 
-      const ids = [...new Set(candidateRows.map((r: any) => r.constituency_id).filter(Boolean))];
+      const ids = [...new Set((candidateRows as { constituency_id: string | null }[]).map((r) => r.constituency_id).filter(Boolean))];
 
       const { data } = await supabase
         .from("constituencies")
@@ -201,7 +201,19 @@ export function CandidatesOverview() {
 
       const { data, error } = await query;
       if (data) {
-        const mapped: Candidate[] = data.map((c: any) => ({
+        type CandidateRow = {
+          id: string;
+          name: string;
+          photo_url?: string;
+          age?: number;
+          education?: string;
+          criminal_cases?: number;
+          assets_declared?: number;
+          manifesto_summary?: string;
+          parties?: { name?: string; abbreviation?: string; color?: string } | null;
+          constituencies?: { name?: string } | null;
+        };
+        const mapped: Candidate[] = (data as CandidateRow[]).map((c) => ({
           id: c.id,
           name: c.name,
           party_name: c.parties?.name,

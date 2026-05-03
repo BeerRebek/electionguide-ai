@@ -92,7 +92,7 @@ export async function fetchMessages(
     role: m.role as "user" | "assistant" | "system",
     content: m.content,
     citations: (m.citations as Citation[]) || undefined,
-    attachments: (m.attachments as any[]) || undefined,
+    attachments: (m.attachments as { url: string; name: string; type: string; size: number }[]) || undefined,
     confidence: m.metadata?.confidence || undefined,
     sourceCount: m.metadata?.sourceCount || undefined,
     createdAt: m.created_at,
