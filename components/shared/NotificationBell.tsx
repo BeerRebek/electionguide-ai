@@ -95,7 +95,7 @@ interface NotificationRow {
 function mapRow(row: NotificationRow): Notification {
   return {
     id: row.id,
-    type: row.type ?? "alert",
+    type: (row.type as Notification["type"]) ?? "alert",
     title: row.title,
     body: row.body ?? row.message ?? "",
     time: relativeTime(row.created_at),
@@ -174,7 +174,7 @@ export function NotificationBell() {
           filter: `user_id=eq.${session.user.id}`,
         },
         (payload) => {
-          const newNotif = mapRow(payload.new);
+          const newNotif = mapRow(payload.new as NotificationRow);
           setNotifs((prev) => [newNotif, ...prev.slice(0, 19)]);
         }
       )
@@ -188,7 +188,7 @@ export function NotificationBell() {
         },
         (payload) => {
           setNotifs((prev) =>
-            prev.map((n) => (n.id === payload.new.id ? mapRow(payload.new) : n))
+            prev.map((n) => (n.id === payload.new.id ? mapRow(payload.new as NotificationRow) : n))
           );
         }
       )
