@@ -61,11 +61,13 @@ export default async function RootLayout({
     <html lang={locale} data-font-size="normal" data-contrast="normal" suppressHydrationWarning>
       <head>
         {/* Material Symbols Outlined */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
         {/* Noto Sans Devanagari for Hindi/Marathi support */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
           rel="stylesheet"

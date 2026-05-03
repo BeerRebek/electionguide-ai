@@ -10,7 +10,6 @@ export function AdminSidebar() {
   const pathname = usePathname();
   const router = useRouter();
   const [displayName, setDisplayName] = useState("Admin");
-  const [email, setEmail] = useState("");
   const [role, setRole] = useState<UserRole>("admin");
 
   useEffect(() => {
@@ -20,7 +19,6 @@ export function AdminSidebar() {
         setDisplayName(
           data.user.user_metadata?.full_name || data.user.email?.split("@")[0] || "Admin"
         );
-        setEmail(data.user.email || "");
 
         const { data: profile } = await supabase
           .from("profiles")

@@ -154,7 +154,6 @@ export function NotificationsPageClient() {
   const [selected, setSelected] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userId, setUserId] = useState<string | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // ── Show a short toast ────────────────────────────────────────────────────
@@ -182,7 +181,6 @@ export function NotificationsPageClient() {
       setIsLoading(false);
       if (user) {
         setIsAuthenticated(true);
-        setUserId(user.id);
         loadFromDB();
 
         // Subscribe to realtime inserts

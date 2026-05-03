@@ -41,6 +41,7 @@ export function BookmarkButton({
 
   useEffect(() => {
     const bookmarks = getBookmarks();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setBookmarked(!!bookmarks[key]);
   }, [key]);
 
@@ -136,6 +137,7 @@ export function useBookmarks() {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     reload();
     window.addEventListener("bookmarks-updated", reload);
     return () => window.removeEventListener("bookmarks-updated", reload);

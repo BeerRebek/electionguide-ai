@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image from "next/image";
 import { createClient } from "@/lib/supabase/client";
 
 interface ImageUploadProps {
@@ -98,10 +99,13 @@ export function ImageUpload({
       {/* Preview */}
       {preview && (
         <div className="relative mb-3">
-          <img
+          <Image
             src={preview}
             alt="Stage illustration preview"
+            width={640}
+            height={144}
             className="w-full h-36 object-cover rounded-lg border border-outline-variant"
+            unoptimized
           />
           <button
             onClick={() => {

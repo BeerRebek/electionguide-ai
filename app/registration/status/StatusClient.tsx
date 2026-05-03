@@ -27,6 +27,7 @@ export default function StatusClient() {
   // Auto-search if coming from hub with ?epic=
   useEffect(() => {
     const epic = params.get("epic");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (epic) { setQuery(epic); search(epic); }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -3,7 +3,8 @@
 import { useCallback, useState } from "react";
 import { useChatStore } from "@/lib/stores/chat-store";
 
-type ExportFormat = "pdf" | "markdown";
+
+
 
 /**
  * Export the current chat conversation as PDF or Markdown.

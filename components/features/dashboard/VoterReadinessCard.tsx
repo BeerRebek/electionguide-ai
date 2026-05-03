@@ -242,7 +242,7 @@ export function VoterReadinessCard() {
             celebration
           </span>
           <p className="text-sm font-bold text-green-700 dark:text-green-400 mt-1">
-            🎉 You're fully election-ready!
+            🎉 You&apos;re fully election-ready!
           </p>
           <p className="text-xs text-on-surface-variant mt-0.5">
             Share your readiness with friends

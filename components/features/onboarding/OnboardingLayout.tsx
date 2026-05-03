@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { OnboardingProgress } from "./OnboardingProgress";
 import { useOnboardingStore } from "@/lib/stores/onboarding-store";
@@ -47,7 +48,7 @@ export function OnboardingLayout({ children }: OnboardingLayoutProps) {
       {/* Header — matches Stitch step-4 header style */}
       <header className="w-full px-6 py-4 max-w-[1200px] mx-auto flex flex-col gap-2 mt-4">
         <div className="flex justify-between items-end mb-2">
-          <a
+          <Link
             href="/"
             className="text-[24px] leading-[1.4] font-semibold text-primary flex items-center gap-2"
             aria-label="ElectionGuide AI Home"
@@ -60,7 +61,7 @@ export function OnboardingLayout({ children }: OnboardingLayoutProps) {
               how_to_vote
             </span>
             ElectionGuide AI
-          </a>
+          </Link>
           <div className="flex items-center gap-2">
             {currentStep < 4 && (
               <button

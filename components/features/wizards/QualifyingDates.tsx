@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 const QUALIFYING_DATES = [
   { date: "January 1", month: 1, day: 1, label: "Q1" },
   { date: "April 1", month: 4, day: 1, label: "Q2" },

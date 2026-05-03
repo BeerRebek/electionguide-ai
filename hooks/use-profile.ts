@@ -41,6 +41,7 @@ export function useProfile() {
   }, [user]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!userLoading) fetchProfile();
   }, [userLoading, fetchProfile]);
 

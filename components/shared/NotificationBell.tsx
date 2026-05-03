@@ -82,7 +82,17 @@ function relativeTime(isoString: string): string {
 }
 
 // ── Map DB row → Notification ──────────────────────────────────────────────
-function mapRow(row: any): Notification {
+interface NotificationRow {
+  id: string;
+  type?: string;
+  title: string;
+  body?: string;
+  message?: string;
+  created_at: string;
+  is_read?: boolean;
+  action_url?: string;
+}
+function mapRow(row: NotificationRow): Notification {
   return {
     id: row.id,
     type: row.type ?? "alert",
@@ -188,6 +198,7 @@ export function NotificationBell() {
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     loadNotifications().then(() => subscribeRealtime());
     return () => {
       channelRef.current?.unsubscribe();

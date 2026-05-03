@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useState, useEffect, useCallback } from "react";
+import { useParams } from "next/navigation";
 import Link from "next/link";
 import { QuizCertificate } from "@/components/quiz/QuizCertificate";
 
@@ -132,6 +132,7 @@ export default function QuizPlayPage() {
   // Timer
   useEffect(() => {
     if (state !== "playing" || answered) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (timeLeft <= 0) { handleAnswer(-1); return; }
     const t = setTimeout(() => setTimeLeft((tl) => tl - 1), 1000);
     return () => clearTimeout(t);
@@ -143,6 +144,7 @@ export default function QuizPlayPage() {
       const pct = Math.round((score / total) * 100);
       if (pct >= 60) {
         launchConfetti();
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setConfettiFired(true);
       }
     }

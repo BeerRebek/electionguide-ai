@@ -52,8 +52,9 @@ export async function POST(req: NextRequest) {
     // ── Fallback to mock data for demonstration ────────────────────────────
     const mockResult = generateMockResult(voterId ?? name ?? "");
     return NextResponse.json({ success: true, data: mockResult, mock: true });
-  } catch (e: any) {
-    console.error("[verify-registration] Error:", e.message);
+  } catch (e) {
+    const message = e instanceof Error ? e.message : "Unknown error";
+    console.error("[verify-registration] Error:", message);
     return NextResponse.json({ error: "Verification failed" }, { status: 500 });
   }
 }

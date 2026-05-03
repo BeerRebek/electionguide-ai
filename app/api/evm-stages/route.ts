@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 export const dynamic = "force-dynamic";
@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
  * GET /api/evm-stages
  * Returns all EVM lifecycle stages ordered by stage_order.
  */
-export async function GET(_req: NextRequest) {
+export async function GET() {
   const supabase = await createServerSupabaseClient();
 
   const { data, error } = await supabase

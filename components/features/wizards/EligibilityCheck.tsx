@@ -75,7 +75,6 @@ export function EligibilityCheck({ onEligible }: Props) {
     }
   };
 
-  const allChecked = CRITERIA.every((c) => checks[c.id]);
 
   return (
     <div>

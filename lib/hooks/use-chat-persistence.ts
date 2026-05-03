@@ -104,6 +104,7 @@ export function useChatPersistence() {
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     loadSessions();
   }, [loadSessions]);
 

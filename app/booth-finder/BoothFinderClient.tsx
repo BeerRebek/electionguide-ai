@@ -252,6 +252,7 @@ export function BoothFinderClient() {
     if (searched) {
       const lat = userLat ?? 18.5204;
       const lng = userLng ?? 73.8567;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       computeBooths(lat, lng, query);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

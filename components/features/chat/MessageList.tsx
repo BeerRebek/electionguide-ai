@@ -18,10 +18,6 @@ export function MessageList() {
   const firstMsgDate = messages[0]
     ? new Date(messages[0].createdAt)
     : new Date();
-  const dateLabel = firstMsgDate.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-  });
   const timeLabel = firstMsgDate.toLocaleTimeString("en-US", {
     hour: "numeric",
     minute: "2-digit",

@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 
 export function VoterIdVerificationStep() {
   const t = useTranslations("onboarding");
-  const { profile, setProfile, nextStep, complete } = useOnboardingStore();
+  const { profile, setProfile, complete } = useOnboardingStore();
   const { upload, isUploading, error: uploadError } = useUploadAttachment();
   const [isScanning, setIsScanning] = useState(false);
   const [scanComplete, setScanComplete] = useState(false);
