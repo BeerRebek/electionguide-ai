@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Navbar } from "@/components/shared/Navbar";
+import { SkipToContent } from "@/components/accessibility/SkipToContent";
 import {
   DashboardSidebar,
   HeroCard,
@@ -20,10 +22,13 @@ export const metadata: Metadata = {
 
 export default function DashboardPage() {
   return (
-    <div className="min-h-screen flex">
-      <DashboardSidebar />
+    <>
+      <SkipToContent />
+      <Navbar />
+      <div className="min-h-screen flex pt-16">
+        <DashboardSidebar />
 
-      <main className="flex-1 lg:ml-72 p-6 min-h-screen">
+        <main id="main-content" className="flex-1 lg:ml-72 p-6 min-h-screen">
         <div className="max-w-[1200px] mx-auto flex flex-col xl:flex-row gap-6">
           {/* Left / Center Column */}
           <div className="flex-1 flex flex-col gap-6">
@@ -52,7 +57,8 @@ export default function DashboardPage() {
             <TrendingQuestions />
           </aside>
         </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   );
 }

@@ -73,7 +73,7 @@ export function DashboardSidebar() {
 
   return (
     <nav
-      className="fixed left-0 top-0 h-full w-72 border-r hidden lg:flex flex-col bg-surface-container-lowest border-outline-variant shadow-sm z-40"
+      className="fixed left-0 top-16 h-[calc(100vh-4rem)] w-72 border-r hidden lg:flex flex-col bg-surface-container-lowest border-outline-variant shadow-sm z-40"
       aria-label="Dashboard navigation"
     >
       <div className="flex flex-col h-full overflow-hidden">
