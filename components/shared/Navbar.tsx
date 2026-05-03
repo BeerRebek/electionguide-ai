@@ -24,6 +24,7 @@ export function Navbar() {
   const NAV_LINKS = [
     { label: t("timeline"), href: "/timeline" },
     { label: t("guides"), href: "/guides" },
+    { label: "News", href: "/news" },
     { label: t("quizzes"), href: "/quiz" },
     { label: t("about"), href: "/#about" },
   ];
