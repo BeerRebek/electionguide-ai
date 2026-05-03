@@ -82,6 +82,21 @@ function relativeTime(isoString: string): string {
 }
 
 // ── Map DB row → Notification ──────────────────────────────────────────────
+const VALID_NOTIFICATION_TYPES = [
+  "election",
+  "quiz",
+  "guide",
+  "booth",
+  "milestone",
+  "alert",
+] as const;
+
+type NotifType = (typeof VALID_NOTIFICATION_TYPES)[number];
+
+function isValidNotifType(t: string | undefined): t is NotifType {
+  return VALID_NOTIFICATION_TYPES.includes(t as NotifType);
+}
+
 interface NotificationRow {
   id: string;
   type?: string;
@@ -95,7 +110,7 @@ interface NotificationRow {
 function mapRow(row: NotificationRow): Notification {
   return {
     id: row.id,
-    type: (row.type ?? "alert") as Notification["type"],
+    type: isValidNotifType(row.type) ? row.type : "alert",
     title: row.title,
     body: row.body ?? row.message ?? "",
     time: relativeTime(row.created_at),
