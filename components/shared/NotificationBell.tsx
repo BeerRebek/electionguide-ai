@@ -95,7 +95,7 @@ interface NotificationRow {
 function mapRow(row: NotificationRow): Notification {
   return {
     id: row.id,
-    type: (row.type as Notification["type"]) ?? "alert",
+    type: (row.type ?? "alert") as Notification["type"],
     title: row.title,
     body: row.body ?? row.message ?? "",
     time: relativeTime(row.created_at),
