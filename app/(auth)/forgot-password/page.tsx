@@ -32,7 +32,7 @@ export default function ForgotPasswordPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2 text-[24px] leading-[1.4] font-semibold text-primary"
           >
@@ -44,7 +44,7 @@ export default function ForgotPasswordPage() {
               how_to_vote
             </span>
             ElectionGuide AI
-          </a>
+          </Link>
           <h1 className="text-[32px] leading-[1.3] tracking-[-0.01em] font-semibold text-on-surface mt-6 mb-2">
             Reset your password
           </h1>

@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
+interface ProfileRow {
+  id: string;
+  notification_preferences: Record<string, unknown> | null;
+}
+
 export const dynamic = "force-dynamic";
 
 /**
@@ -68,7 +73,7 @@ export async function GET(req: NextRequest) {
       .select("id, notification_preferences")
       .not("notification_preferences", "is", null);
 
-    const eligibleUsers = (users || []).filter((u: any) => {
+    const eligibleUsers = (users || []).filter((u: ProfileRow) => {
       return u.notification_preferences?.election_reminders === true;
     });
 

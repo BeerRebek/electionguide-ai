@@ -37,7 +37,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Failed to query users" }, { status: 500 });
   }
 
-  const eligibleUsers = (users ?? []).filter((u: any) => {
+  const eligibleUsers = (users ?? []).filter((u: { id: string; full_name: string | null; notification_preferences: Record<string, unknown> | null }) => {
     const prefs = u.notification_preferences;
     return prefs?.weekly_digest === true || prefs?.categories?.quiz_alerts === true;
   });

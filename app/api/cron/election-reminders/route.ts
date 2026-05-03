@@ -1,6 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
+interface ElectionPhaseRow {
+  phase_number: number;
+  polling_date: string;
+  elections: { title: string } | null;
+}
+
+interface ProfileRow {
+  id: string;
+  full_name: string | null;
+  state: string | null;
+  notification_preferences: Record<string, unknown> | null;
+}
+
 export const dynamic = "force-dynamic";
 
 /**
@@ -45,7 +58,7 @@ export async function GET(req: NextRequest) {
     .eq("polling_date", in7Days);
 
   if (weekAway) {
-    weekAway.forEach((phase: any) => {
+    weekAway.forEach((phase: ElectionPhaseRow) => {
       triggers.push({
         type: "7_day_reminder",
         electionTitle: phase.elections?.title || "Election",
@@ -62,7 +75,7 @@ export async function GET(req: NextRequest) {
     .eq("polling_date", in1Day);
 
   if (tomorrow) {
-    tomorrow.forEach((phase: any) => {
+    tomorrow.forEach((phase: ElectionPhaseRow) => {
       triggers.push({
         type: "1_day_reminder",
         electionTitle: phase.elections?.title || "Election",
@@ -79,7 +92,7 @@ export async function GET(req: NextRequest) {
     .eq("polling_date", todayStr);
 
   if (todayElections) {
-    todayElections.forEach((phase: any) => {
+    todayElections.forEach((phase: ElectionPhaseRow) => {
       triggers.push({
         type: "election_day",
         electionTitle: phase.elections?.title || "Election",
@@ -110,7 +123,7 @@ export async function GET(req: NextRequest) {
   }
 
   // Filter users who have election_reminders enabled
-  const eligibleUsers = (subscribedUsers || []).filter((user: any) => {
+  const eligibleUsers = (subscribedUsers || []).filter((user: ProfileRow) => {
     const prefs = user.notification_preferences;
     return prefs && prefs.election_reminders === true;
   });
