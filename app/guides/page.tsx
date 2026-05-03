@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
-import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 
 interface Guide {
@@ -156,8 +155,7 @@ export default function GuidesPage() {
 
   return (
     <>
-      <Navbar />
-      <main id="main-content" className="min-h-screen bg-[#F0F4FF] pt-24 pb-16">
+      <main id="main-content" className="min-h-screen bg-[#F0F4FF] pt-6 pb-16">
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <section className="bg-gradient-to-br from-primary to-primary-container py-14 px-6">

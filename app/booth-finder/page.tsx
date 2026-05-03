@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { Navbar } from "@/components/shared/Navbar";
 import { BoothFinderClient } from "./BoothFinderClient";
 
 export const metadata: Metadata = {
@@ -11,8 +10,7 @@ export const metadata: Metadata = {
 export default function BoothFinderPage() {
   return (
     <>
-      <Navbar />
-      <main className="min-h-screen bg-background pt-24 pb-12">
+      <main className="min-h-screen bg-background pt-6 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <BoothFinderClient />
         </div>

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 
 interface NewsItem {
@@ -169,8 +168,7 @@ export default function NewsPage() {
 
   return (
     <>
-      <Navbar />
-      <main id="main-content" className="min-h-screen bg-[#F0F4FF] pt-24 pb-16">
+      <main id="main-content" className="min-h-screen bg-[#F0F4FF] pt-6 pb-16">
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <section className="bg-gradient-to-br from-[#00236f] to-[#1e3a8a] py-14 px-6">

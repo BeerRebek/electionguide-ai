@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/shared/Navbar";
 import { SkipToContent } from "@/components/accessibility/SkipToContent";
 import {
-  DashboardSidebar,
   HeroCard,
   QuickActions,
   ElectionJourney,
@@ -24,11 +22,7 @@ export default function DashboardPage() {
   return (
     <>
       <SkipToContent />
-      <Navbar />
-      <div className="min-h-screen flex pt-16">
-        <DashboardSidebar />
-
-        <main id="main-content" className="flex-1 lg:ml-72 p-6 min-h-screen">
+      <div className="p-6 min-h-screen bg-[#F0F4FF]">
         <div className="max-w-[1200px] mx-auto flex flex-col xl:flex-row gap-6">
           {/* Left / Center Column */}
           <div className="flex-1 flex flex-col gap-6">
@@ -37,11 +31,9 @@ export default function DashboardPage() {
 
             {/* Two-column content */}
             <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Journey */}
               <div className="flex flex-col gap-6">
                 <ElectionJourney />
               </div>
-              {/* Facts / News */}
               <div className="flex flex-col gap-6">
                 <CivicFact />
                 <DailyQuiz />
@@ -57,7 +49,6 @@ export default function DashboardPage() {
             <TrendingQuestions />
           </aside>
         </div>
-        </main>
       </div>
     </>
   );

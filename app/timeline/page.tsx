@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { SkipToContent } from "@/components/accessibility/SkipToContent";
-import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import { ElectionTimeline } from "@/components/features/timeline";
 
@@ -14,10 +13,9 @@ export default function TimelinePage() {
   return (
     <>
       <SkipToContent />
-      <Navbar />
       <main
         id="main-content"
-        className="max-w-[1200px] mx-auto px-6 pb-8 md:pb-12 pt-24"
+        className="max-w-[1200px] mx-auto px-6 pb-8 md:pb-12 pt-6"
         role="main"
       >
         <ElectionTimeline />

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { SkipToContent } from "@/components/accessibility/SkipToContent";
-import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import Link from "next/link";
 import { QuickVoterSearch } from "./QuickVoterSearch";
@@ -14,8 +13,7 @@ export default function RegistrationPage() {
   return (
     <>
       <SkipToContent />
-      <Navbar />
-      <main id="main-content" className="max-w-[800px] mx-auto px-6 pb-8 md:pb-12 pt-24" role="main">
+      <main id="main-content" className="max-w-[800px] mx-auto px-6 pb-8 md:pb-12 pt-6" role="main">
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold tracking-tight text-on-surface mb-3 leading-tight">Voter Registration</h1>
           <p className="text-lg text-on-surface-variant">Check your eligibility and complete your voter registration</p>
